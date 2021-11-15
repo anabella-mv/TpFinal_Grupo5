@@ -2,12 +2,22 @@ package ar.edu.unju.edm.poo.dominio;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "mesas")
 public class Mesa {
 
 	private int capacidadPersonas;
 	private int id;
 	private String estado;
 	private LocalDate reserva;
+	@OneToMany
+	@JoinColumn(name = "nroSalon")
+	private Salon salon;
 
 	public int getCapacidadPersonas() {
 		return capacidadPersonas;

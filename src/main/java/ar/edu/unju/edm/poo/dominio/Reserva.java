@@ -3,19 +3,92 @@ package ar.edu.unju.edm.poo.dominio;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "reservas")
 public class Reserva {
-	private long idCliente;
+	@Id
+	private long id;
 	private int capacidadComensales;
 	private LocalDate fecha;
 	private LocalDateTime hora;
 	private double total;
 
-	public long getIdCliente() {
-		return idCliente;
+	@OneToMany
+	@JoinColumn(name = "dni")
+	private ClienteP cliente;
+
+	@OneToMany
+	@JoinColumn(name = "cuit")
+	private ClienteAT clienteA;
+
+	@ManyToMany
+	@JoinColumn(name = "dni")
+	private Mozo mozo;
+
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private Mesa mesa;
+
+	public Reserva(long id, int capacidadComensales, LocalDate fecha, LocalDateTime hora, double total,
+			ClienteP cliente, ClienteAT clienteA, Mozo mozo, Mesa mesa) {
+		super();
+		this.id = id;
+		this.capacidadComensales = capacidadComensales;
+		this.fecha = fecha;
+		this.hora = hora;
+		this.total = total;
+		this.cliente = cliente;
+		this.clienteA = clienteA;
+		this.mozo = mozo;
+		this.mesa = mesa;
 	}
 
-	public void setIdCliente(long idCliente) {
-		this.idCliente = idCliente;
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public ClienteP getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(ClienteP cliente) {
+		this.cliente = cliente;
+	}
+
+	public ClienteAT getClienteA() {
+		return clienteA;
+	}
+
+	public void setClienteA(ClienteAT clienteA) {
+		this.clienteA = clienteA;
+	}
+
+	public Mozo getMozo() {
+		return mozo;
+	}
+
+	public void setMozo(Mozo mozo) {
+		this.mozo = mozo;
+	}
+
+	public Mesa getMesa() {
+		return mesa;
+	}
+
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
 	}
 
 	public int getCapacidadComensales() {
@@ -52,17 +125,9 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return "Reserva [idCliente=" + idCliente + ", capacidadComensales=" + capacidadComensales + ", fecha=" + fecha
-				+ ", hora=" + hora + ", total=" + total + "]";
-	}
-
-	public Reserva(long idCliente, int capacidadComensales, LocalDate fecha, LocalDateTime hora, double total) {
-		super();
-		this.idCliente = idCliente;
-		this.capacidadComensales = capacidadComensales;
-		this.fecha = fecha;
-		this.hora = hora;
-		this.total = total;
+		return "Reserva [id=" + id + ", capacidadComensales=" + capacidadComensales + ", fecha=" + fecha + ", hora="
+				+ hora + ", total=" + total + ", cliente=" + cliente + ", clienteA=" + clienteA + ", mozo=" + mozo
+				+ ", mesa=" + mesa + "]";
 	}
 
 	public Reserva() {
