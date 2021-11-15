@@ -3,6 +3,7 @@ package ar.edu.unju.edm.poo.dominio;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 public class Mesa {
 
 	private int capacidadPersonas;
+	@Id
 	private int id;
 	private String estado;
 	private LocalDate reserva;
