@@ -1,7 +1,14 @@
 package ar.edu.unju.edm.poo.dominio;
 
-public class ClienteAT {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="clientesAgencia")
+public class ClienteAT extends Persona{
+
+	@Id
 	private long cuit;
 
 	public long getCuit() {
@@ -17,8 +24,8 @@ public class ClienteAT {
 		return "ClienteAT [cuit=" + cuit + "]";
 	}
 
-	public ClienteAT(long cuit) {
-		super();
+	public ClienteAT(String nombre, String apellido, String email, long telefono, long cuit) {
+		super(nombre, apellido, email, telefono);
 		this.cuit = cuit;
 	}
 
@@ -26,6 +33,12 @@ public class ClienteAT {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public ClienteAT(String nombre, String apellido, String email, long telefono) {
+		super(nombre, apellido, email, telefono);
+		// TODO Auto-generated constructor stub
+	}
+
 	
 	
 	

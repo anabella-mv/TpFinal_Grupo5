@@ -5,19 +5,20 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "mesas")
 public class Mesa {
 
-	private int capacidadPersonas;
+	
 	@Id
 	private int id;
+	private int capacidadPersonas;
 	private String estado;
-	private LocalDate reserva;
-	@OneToMany
+	private LocalDate reservaFecha;
+	@ManyToOne
 	@JoinColumn(name = "nroSalon")
 	private Salon salon1;
 
@@ -46,26 +47,26 @@ public class Mesa {
 		this.estado = estado;
 	}
 
-	public LocalDate getReserva() {
-		return reserva;
+	public LocalDate getReservaFecha() {
+		return reservaFecha;
 	}
 
-	public void setReserva(LocalDate reserva) {
-		this.reserva = reserva;
+	public void setReservaFecha(LocalDate reservaFecha) {
+		this.reservaFecha = reservaFecha;
 	}
 
 	@Override
 	public String toString() {
-		return "Mesa [capacidadPersonas=" + capacidadPersonas + ", id=" + id + ", estado=" + estado + ", reserva="
-				+ reserva + "]";
+		return "Mesa [capacidadPersonas=" + capacidadPersonas + ", id=" + id + ", estado=" + estado + ", reservaFecha="
+				+ reservaFecha + "]";
 	}
 
-	public Mesa(int capacidadPersonas, int id, String estado, LocalDate reserva) {
+	public Mesa(int capacidadPersonas, int id, String estado, LocalDate reservaFecha) {
 		super();
 		this.capacidadPersonas = capacidadPersonas;
 		this.id = id;
 		this.estado = estado;
-		this.reserva = reserva;
+		this.reservaFecha = reservaFecha;
 	}
 
 	public Mesa() {
