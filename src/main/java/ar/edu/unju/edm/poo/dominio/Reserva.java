@@ -21,9 +21,10 @@ public class Reserva {
 	private LocalDateTime hora;
 	private double total;
 
+	
 	@OneToMany
 	@JoinColumn(name = "dni")
-	private ClienteP cliente;
+	private ClienteP clienteP;
 
 	@OneToMany
 	@JoinColumn(name = "cuit")
@@ -38,14 +39,14 @@ public class Reserva {
 	private Mesa mesa;
 
 	public Reserva(long id, int capacidadComensales, LocalDate fecha, LocalDateTime hora, double total,
-			ClienteP cliente, ClienteAT clienteA, Mozo mozo, Mesa mesa) {
+			ClienteP clienteP, ClienteAT clienteA, Mozo mozo, Mesa mesa) {
 		super();
 		this.id = id;
 		this.capacidadComensales = capacidadComensales;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.total = total;
-		this.cliente = cliente;
+		this.clienteP = clienteP;
 		this.clienteA = clienteA;
 		this.mozo = mozo;
 		this.mesa = mesa;
@@ -59,12 +60,12 @@ public class Reserva {
 		this.id = id;
 	}
 
-	public ClienteP getCliente() {
-		return cliente;
+	public ClienteP getClienteP() {
+		return clienteP;
 	}
 
-	public void setCliente(ClienteP cliente) {
-		this.cliente = cliente;
+	public void setClienteP(ClienteP clienteP) {
+		this.clienteP = clienteP;
 	}
 
 	public ClienteAT getClienteA() {
@@ -126,7 +127,7 @@ public class Reserva {
 	@Override
 	public String toString() {
 		return "Reserva [id=" + id + ", capacidadComensales=" + capacidadComensales + ", fecha=" + fecha + ", hora="
-				+ hora + ", total=" + total + ", cliente=" + cliente + ", clienteA=" + clienteA + ", mozo=" + mozo
+				+ hora + ", total=" + total + ", clienteP=" + clienteP + ", clienteA=" + clienteA + ", mozo=" + mozo
 				+ ", mesa=" + mesa + "]";
 	}
 

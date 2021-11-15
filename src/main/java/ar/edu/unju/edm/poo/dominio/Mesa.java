@@ -17,8 +17,9 @@ public class Mesa {
 	private LocalDate reserva;
 	@OneToMany
 	@JoinColumn(name = "nroSalon")
-	private Salon salon;
+	private Salon salon1;
 
+	
 	public int getCapacidadPersonas() {
 		return capacidadPersonas;
 	}
