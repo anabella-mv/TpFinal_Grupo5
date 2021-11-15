@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,35 +21,16 @@ public class Reserva {
 	private LocalDateTime hora;
 	private double total;
 
-	@OneToMany
-	@JoinColumn(name = "dni")
-	private ClienteP cliente;
+	@OneToOne
+	private Persona cliente;
 
-	@OneToMany
-	@JoinColumn(name = "cuit")
-	private ClienteAT clienteA;
-
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name = "dni")
 	private Mozo mozo;
 
-	@ManyToOne
+	@OneToMany
 	@JoinColumn(name = "id")
 	private Mesa mesa;
-
-	public Reserva(long id, int capacidadComensales, LocalDate fecha, LocalDateTime hora, double total,
-			ClienteP cliente, ClienteAT clienteA, Mozo mozo, Mesa mesa) {
-		super();
-		this.id = id;
-		this.capacidadComensales = capacidadComensales;
-		this.fecha = fecha;
-		this.hora = hora;
-		this.total = total;
-		this.cliente = cliente;
-		this.clienteA = clienteA;
-		this.mozo = mozo;
-		this.mesa = mesa;
-	}
 
 	public long getId() {
 		return id;
@@ -57,22 +38,6 @@ public class Reserva {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public ClienteP getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(ClienteP cliente) {
-		this.cliente = cliente;
-	}
-
-	public ClienteAT getClienteA() {
-		return clienteA;
-	}
-
-	public void setClienteA(ClienteAT clienteA) {
-		this.clienteA = clienteA;
 	}
 
 	public Mozo getMozo() {
@@ -123,11 +88,31 @@ public class Reserva {
 		this.total = total;
 	}
 
+	public Persona getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Persona cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public String toString() {
 		return "Reserva [id=" + id + ", capacidadComensales=" + capacidadComensales + ", fecha=" + fecha + ", hora="
-				+ hora + ", total=" + total + ", cliente=" + cliente + ", clienteA=" + clienteA + ", mozo=" + mozo
-				+ ", mesa=" + mesa + "]";
+				+ hora + ", total=" + total + ", cliente=" + cliente + ", mozo=" + mozo + ", mesa=" + mesa + "]";
+	}
+
+	public Reserva(long id, int capacidadComensales, LocalDate fecha, LocalDateTime hora, double total, Persona cliente,
+			Mozo mozo, Mesa mesa) {
+		super();
+		this.id = id;
+		this.capacidadComensales = capacidadComensales;
+		this.fecha = fecha;
+		this.hora = hora;
+		this.total = total;
+		this.cliente = cliente;
+		this.mozo = mozo;
+		this.mesa = mesa;
 	}
 
 	public Reserva() {

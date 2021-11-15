@@ -10,6 +10,7 @@ public class Salon {
 		return capacidadMesas;
 	}
 
+	
 	public void setCapacidadMesas(int capacidadMesas) {
 		this.capacidadMesas = capacidadMesas;
 	}
