@@ -1,6 +1,13 @@
 package ar.edu.unju.edm.poo.dominio;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="mozos")
 public class Mozo {
+	@Id
 	private long dni;
 
 	public long getDni() {
