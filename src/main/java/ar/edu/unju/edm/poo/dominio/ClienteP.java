@@ -1,13 +1,16 @@
 package ar.edu.unju.edm.poo.dominio;
 
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+
 
 @Entity
-@Table(name="clientesParticulares")
-public class ClienteP extends Persona{
-	@Id
+@DiscriminatorValue(value="Particular")
+public class ClienteP extends Persona  {
+
+	private static final long serialVersionUID = 1L;
 	private long dni;
 
 	public long getDni() {

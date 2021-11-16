@@ -1,14 +1,15 @@
 package ar.edu.unju.edm.poo.dominio;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="clientesAgencia")
-public class ClienteAT extends Persona{
+@DiscriminatorValue(value="Agencia")
+public class ClienteAT extends Persona   {
 
-	@Id
+	private static final long serialVersionUID = 1L;
 	private long cuit;
 
 	public long getCuit() {
