@@ -4,14 +4,15 @@
  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
  <persistence-unit name="TestPersistence">
  <class><!-- Entity Manager Class Name --></class>
- <class>ar.edu.unju.edm.dominio.Reserva</class>
+ <class>ar.edu.unju.edm.dominio.Persona</class>
+  <class>ar.edu.unju.edm.dominio.ClienteP</class>
  <properties>
 
 <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 <property name="javax.persistence.jdbc.url"
-value="jdbc:mysql://localhost:3306/jpa?zeroDateTimeBehavior=convertToNull&amp;serverTimezone=UTC"/>
+value="jdbc:mysql://localhost:3306/tp_final?zeroDateTimeBehavior=convertToNull&amp;serverTimezone=UTC"/>
  <property name="javax.persistence.jdbc.user" value="root" />
- <property name="javax.persistence.jdbc.password" value="263746234mav" />
+ <property name="javax.persistence.jdbc.password" value="3884694499Aylen" />
 <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
  <property name="hibernate.hbm2ddl.auto" value="create-drop"/> 
 <!-- <property name="hibernate.hbm2ddl.auto" value=“update"/> -->

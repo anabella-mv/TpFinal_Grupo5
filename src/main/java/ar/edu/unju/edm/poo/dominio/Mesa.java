@@ -18,9 +18,8 @@ public class Mesa {
 	private int capacidadPersonas;
 	private String estado;
 	private LocalDate reservaFecha;
-	@ManyToOne
-	@JoinColumn(name = "nroSalon")
-	private Salon salon1;
+	
+	//private Salon salon1;
 
 	
 	public int getCapacidadPersonas() {
